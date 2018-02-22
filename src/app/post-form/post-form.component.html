@@ -1,0 +1,25 @@
+
+<div *ngIf="post" class="container">
+    <h1 class="mat-h1" *ngIf="editing">Edition</h1>
+    <h1 class="mat-h1" *ngIf="!editing">Création</h1>
+<form #postForm="ngForm" (ngSubmit)="onSubmit()" fxLayout="column">
+    <mat-slide-toggle name="onLine" [(ngModel)]="post.onLine">{{post.onLine ? 'En ligne' : 'Déconnecté'}}</mat-slide-toggle>
+    <p>Niveau:</p>
+    <mat-radio-group name="level" [(ngModel)]="post.level">
+        <mat-radio-button [value]="1">Débutant</mat-radio-button>
+        <mat-radio-button [value]="2">Comfirmé</mat-radio-button>
+        <mat-radio-button [value]="3">Expert</mat-radio-button>
+    </mat-radio-group>
+    <mat-form-field>
+        <mat-label>Catégories</mat-label>
+            <mat-select name="level2" [(ngModel)]="post.tagIds" multiple>
+              <mat-option *ngFor="let t of tags" [value]="t.id">{{t.value}}</mat-option>
+            </mat-select>
+          </mat-form-field>
+    <mat-form-field><input placeholder="Titre" matInput type="text" name="name" [(ngModel)]="post.title"></mat-form-field>
+    <mat-form-field><input placeholder="Description" matInput type="text" name="jobTitle" [(ngModel)]="post.desc"></mat-form-field>
+    <mat-form-field><input placeholder="Image" matInput type="text" name="img" [(ngModel)]="post.img"></mat-form-field>
+    
+    <button mat-raised-button type="submit">{{ editing ? 'Editer': 'Créer'}}</button>
+</form>
+</div>

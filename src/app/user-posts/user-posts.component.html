@@ -1,0 +1,20 @@
+<div *ngIf="posts && posts.length > 0"> <!-- si il y a des posts dans le tableau -->
+  <div *ngIf ="posts.length > 0">
+    <mat-list>
+      <mat-list-item *ngFor="let p of posts">
+        <a href="" (click)="selectPost(p.id);$event.preventDefault();">{{ p.title }}</a>
+        <button mat-raised-button (click)="selectPost(p.id)">Voir le détail</button>
+      </mat-list-item>
+    </mat-list>
+  </div>
+</div>
+
+  <p *ngIf="posts && posts.length == 0"> <!-- sinon -->
+    Aucun posts pour cet utilisateur
+  </p>
+
+  <div *ngIf="!posts"> <!-- en attendant petite animation -->
+    <mat-spinner></mat-spinner>
+    <p> Loading ...</p>
+  </div>
+

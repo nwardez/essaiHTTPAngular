@@ -1,0 +1,9 @@
+.container {
+    margin:2em;
+    width: 600px;
+}
+
+.contient {
+    display: flex;
+    flex-direction: row;
+}

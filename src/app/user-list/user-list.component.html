@@ -1,0 +1,12 @@
+
+  <mat-list-item *ngFor ="let u of users"> 
+    <h3><a href="" [routerLink]="['/user',u.id]"> {{u.id }} {{ u.name }} </a></h3>
+    <!--<h3><a href="" routerLink="/user/{{u.id}}"> {{u.id }}> {{ u.name }} </a></h3>  Deuxieme facon de faire--> 
+    {{ u.jobTitle }} <br>
+    Latitude: {{ u.position.lat}} <br>
+    Longitude: {{ u.position.lng}} <br>
+    <img src= "{{ u.image }}" />
+  </mat-list-item>
+
+  <router-outlet></router-outlet>
+
